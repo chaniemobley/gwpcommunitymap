@@ -27,8 +27,12 @@
 }
 .headingcontainer .stars img{
     display: inline-block;
-    vertical-align: middle;
-    max-height: 40px;
+    max-height: 50px;
+    padding-top: 15px;
+}
+.reviewlink{
+    text-align: right;
+    padding-right:10px;
 }
 .maphead
 {

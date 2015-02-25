@@ -1,213 +1,232 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Community Map</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="styles/custom.css" type="text/css" />
-<link rel="stylesheet" href="http://demo.glasswebprojects.com/css/bootstrap.min.css" type="text/css" />
+    <meta charset="UTF-8">
+    <title>Community Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/custom.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/animation.css" type="text/css"/>
+    <link rel="stylesheet" href="http://demo.glasswebprojects.com/css/bootstrap.min.css" type="text/css"/>
+    <script src="script/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="script/script.js"></script>
 </head>
 
 <body>
 <!--Whole page container start-->
-<div class="container-full"> 
-  <!--Header start-->
-  <div class="jumbotron text-center bottomshadow maphead">
-    <div class="iconcontainer">
-      <div class="icon"><img src="images/Map.png" class="img-responsive"/></div>
-      <div class="content">
-        <h1>Community Map</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-        <p class="lead">Below are a few organizations. Check out their specialties, add a few reviews, then <a href="http://www.glasswebprojects.info/clients/demo/communitymap/default/register">register</a> any organizations not yet listed.</p>
-        </div></div>
+<div class="container-full">
+    <!--Header start-->
+    <div class="jumbotron text-center bottomshadow maphead">
+        <div class="iconcontainer">
+            <div class="icon"><img src="images/Map.png" class="img-responsive hatch"/></div>
+            <div class="content">
+                <h1>Community Map</h1>
+            </div>
+        </div>
         <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-        <form class="navbar-form">
-          <fieldset>
-          <div class="form-group">
-          	<div class="col-md-3">
-                <select id="selectbasic1" name="selectbasic1" class="form-control">
-                  <option value="">--All Ratings--</option>
-                  <option value="1 Star">1 Star</option>
-                  <option value="2 Stars">2 Stars</option>
-                  <option value="3 Stars">3 Stars</option>
-                  <option value="4 Stars">4 Stars</option>
-                </select>
-              </div>
+            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                <p class="lead">Below are a few organizations. Check out their specialties, add a few reviews, then <a
+                        href="http://www.glasswebprojects.info/clients/demo/communitymap/default/register">register</a>
+                    any organizations not yet listed.</p>
             </div>
-            <div class="form-group">
-          	<div class="col-md-3">
-                <select id="selectbasic2" name="selectbasic2" class="form-control">
-                  <option value="">--All Neighborhoods--</option>
-                  <option value="Neighborhood">Neighborhood</option>
-                  <option value="Neighborhood">Neighborhood</option>
-                  <option value="Neighborhood">Neighborhood</option>
-                  <option value="Neighborhood">Neighborhood</option>
-                  <option value="Neighborhood">Neighborhood</option>
-                  <option value="Neighborhood">Neighborhood</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-            	<div class="col-md-3">
-                <select id="selectbasic3" name="selectbasic3" class="form-control">
-                  <option value="">--All Categories--</option>
-                  <option value="Category 1">Category 1</option>
-                  <option value="Category 2">Category 2</option>
-                  <option value="Category 3">Category 3</option>
-                  <option value="Category 4">Category 4</option>
-                  <option value="Category 5">Category 5</option>
-                  <option value="Category 6">Category 6</option>
-                  <option value="Category 7">Category 7</option>
-                  <option value="Category 8">Category 8</option>
-                  <option value="Category 9">Category 9</option>
-                </select>
-              </div>
-            </div>
-            
-            <!-- Button -->
-            <div class="form-group">
-              <div class="col-md-3">
-                <button id="singlebutton" name="singlebutton" class="btn btn-success">Apply Filter</button>
-              </div>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-  </div>
-  <!--Header end--> 
-  <!--map start-->
-  <div id="map" style="text-align:center; margin-left:4px;">
-    <style type="text/css">
-    	#map-canvas { width: 100%; height: 400px; }
-    </style>
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuPxpdHmYpkzi-d5gO1qWAy77jdwg1ZN4&sensor=false">
-    </script> 
-    <script type="text/javascript">
-	
-	 //new
-	   var infowindow;
-		(function () {
-		
-		  google.maps.Map.prototype.markers = new Array();
-			
-		  google.maps.Map.prototype.addMarker = function(marker) {
-			this.markers[this.markers.length] = marker;
-		  };
-			
-		  google.maps.Map.prototype.getMarkers = function() {
-			return this.markers;
-		  };
-			
-		  google.maps.Map.prototype.clearMarkers = function() {
-			if(infowindow) {
-			  infowindow.close();
-			}
-			
-			for(var i=0; i<this.markers.length; i++){
-			  this.markers[i].set_map(null);
-			}
-		  };
-		})();
-
-      function initialize() {
-        var mapOptions = {
-          center: new google.maps.LatLng(39.768403,-86.158068),
-          zoom: 10,
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-		  scrollwheel: false
-        };
-		
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
-			
-		var a = new Array();
-		
-		
-			var t =  new Object();
-				t.name = "City Market"
-				t.lat =  39.7684662
-				t.lng =  -86.1540548
-				t.desc = "<div style=\"width:100%; height:100%;\";><h4 style=\"font-weight:bold\"><a href=\"/clients/demo/communitymap/view/City+Market\">City Market</a></h4><div><a href=\"http://www.indycm.com\" target=\"_blank\">www.indycm.com</a></div><div>222 E Market St<br>Indianapolis, IN 46204</div></div>"
-				a[0] = t;
-			 
-			var t =  new Object();
-				t.name = "Agrarian"
-				t.lat =  39.8426378
-				t.lng =  -86.1460198
-				t.desc = "<div style=\"width:100%; height:100%;\";><h4 style=\"font-weight:bold\"><a href=\"/clients/demo/communitymap/view/Agrarian\">Agrarian</a></h4><div><a href=\"http://www.agrarianindy.com\" target=\"_blank\">www.agrarianindy.com</a></div><div>661 East 49th Street Map, 46205 <br>Indianapolis, IN 46205</div><div>(317) 493-1166</div></div>"
-				a[1] = t;
-			 
-			var t =  new Object();
-				t.name = "Bjava Coffee & Tea"
-				t.lat =  39.8516197
-				t.lng =  -86.2631756
-				t.desc = "<div style=\"width:100%; height:100%;\";><h4 style=\"font-weight:bold\"><a href=\"/clients/demo/communitymap/view/Bjava+Coffee+&+Tea\">Bjava Coffee & Tea</a></h4><div><a href=\"http://beejava.blogspot.com\" target=\"_blank\">beejava.blogspot.com</a></div><div>5510 Lafayette Rd #140<br>Indianapolis, IN 46254</div></div>"
-				a[2] = t;
-			 
-
-		for (var i = 0; i < a.length; i++) {
-			var latlng = new google.maps.LatLng(a[i].lat, a[i].lng);
-			map.addMarker(createMarker(a[i].name,latlng,a[i].desc));
-		 }
-		console.log(map.getMarkers());    
-		
-		console.log(map.getMarkers());    
-	  
-	  function createMarker(name, latlng, desc) {
-		var marker = new google.maps.Marker({position: latlng, map: map, animation: google.maps.Animation.DROP,
-      			title: name, icon: ''});
-		google.maps.event.addListener(marker, "click", function() {
-		  if (infowindow) infowindow.close();
-		  infowindow = new google.maps.InfoWindow({content: desc});
-		  infowindow.open(map, marker);
-		});
-		return marker;
-	  }
-  
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-    <div id="map-canvas"></div>
-  </div>
-  <!--map end--> 
-  <!--content area begin-->
-  <div class="container orgdetail">
-    <div class="row">
-      <div class="col-xs-11 col-xs-offset-1 col-sm-5 col-sm-offset-1">
-        <div class="iconcontainer">
-          <div class="icon"><img src="images/pin.png" class="img-responsive"/></div>
-          <div class="content">
-            <h2><a href="http://glasswebprojects.info/clients/demo/communitymap/view/City+Market">City Market</a></h2>
-          </div>
         </div>
-        <div class="leftpadding"> 
-        	<a href="http://www.indycm.com" target="_blank">www.indycm.com</a><br>
-            <p>222 E Market St.<br>
-			Indianapolis, IN 46204</p>
-		</div>
-      </div>
-      <div class="col-xs-11 col-xs-offset-1 col-sm-5">
-        <div class="iconcontainer">
-          <div class="icon"><img src="images/pin.png" class="img-responsive"/></div>
-          <div class="content">
-            <h2><a href="http://glasswebprojects.info/clients/demo/communitymap/view/City+Market">City Market</a></h2>
-          </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                <form class="navbar-form">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <select id="selectbasic1" name="selectbasic1" class="form-control">
+                                    <option value="">--All Ratings--</option>
+                                    <option value="1 Star">1 Star</option>
+                                    <option value="2 Stars">2 Stars</option>
+                                    <option value="3 Stars">3 Stars</option>
+                                    <option value="4 Stars">4 Stars</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <select id="selectbasic2" name="selectbasic2" class="form-control">
+                                    <option value="">--All Neighborhoods--</option>
+                                    <option value="Neighborhood">Neighborhood</option>
+                                    <option value="Neighborhood">Neighborhood</option>
+                                    <option value="Neighborhood">Neighborhood</option>
+                                    <option value="Neighborhood">Neighborhood</option>
+                                    <option value="Neighborhood">Neighborhood</option>
+                                    <option value="Neighborhood">Neighborhood</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <select id="selectbasic3" name="selectbasic3" class="form-control">
+                                    <option value="">--All Categories--</option>
+                                    <option value="Category 1">Category 1</option>
+                                    <option value="Category 2">Category 2</option>
+                                    <option value="Category 3">Category 3</option>
+                                    <option value="Category 4">Category 4</option>
+                                    <option value="Category 5">Category 5</option>
+                                    <option value="Category 6">Category 6</option>
+                                    <option value="Category 7">Category 7</option>
+                                    <option value="Category 8">Category 8</option>
+                                    <option value="Category 9">Category 9</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <button id="singlebutton" name="singlebutton" class="btn btn-success">Apply Filter
+                                </button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
         </div>
-        <div class="leftpadding"> 
-        	<a href="http://www.indycm.com" target="_blank">www.indycm.com</a><br>
-            <p>222 E Market St.<br>
-			Indianapolis, IN 46204</p>
-		</div>
-      </div>
     </div>
-  </div>
-  <!--content area end--> 
+    <!--Header end-->
+    <!--map start-->
+    <div id="map" style="text-align:center; margin-left:4px;">
+        <style type="text/css">
+            #map-canvas {
+                width: 100%;
+                height: 400px;
+            }
+        </style>
+        <script type="text/javascript"
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuPxpdHmYpkzi-d5gO1qWAy77jdwg1ZN4&sensor=false">
+        </script>
+        <script type="text/javascript">
+
+            //new
+            var infowindow;
+            (function () {
+
+                google.maps.Map.prototype.markers = new Array();
+
+                google.maps.Map.prototype.addMarker = function (marker) {
+                    this.markers[this.markers.length] = marker;
+                };
+
+                google.maps.Map.prototype.getMarkers = function () {
+                    return this.markers;
+                };
+
+                google.maps.Map.prototype.clearMarkers = function () {
+                    if (infowindow) {
+                        infowindow.close();
+                    }
+
+                    for (var i = 0; i < this.markers.length; i++) {
+                        this.markers[i].set_map(null);
+                    }
+                };
+            })();
+
+            function initialize() {
+                var mapOptions = {
+                    center: new google.maps.LatLng(39.768403, -86.158068),
+                    zoom: 10,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    scrollwheel: false
+                };
+
+                var map = new google.maps.Map(document.getElementById("map-canvas"),
+                        mapOptions);
+
+                var a = new Array();
+
+
+                var t = new Object();
+                t.name = "City Market"
+                t.lat = 39.7684662
+                t.lng = -86.1540548
+                t.desc = "<div style=\"width:100%; height:100%;\";><h4 style=\"font-weight:bold\"><a href=\"/clients/demo/communitymap/view/City+Market\">City Market</a></h4><div><a href=\"http://www.indycm.com\" target=\"_blank\">www.indycm.com</a></div><div>222 E Market St<br>Indianapolis, IN 46204</div></div>"
+                a[0] = t;
+
+                var t = new Object();
+                t.name = "Agrarian"
+                t.lat = 39.8426378
+                t.lng = -86.1460198
+                t.desc = "<div style=\"width:100%; height:100%;\";><h4 style=\"font-weight:bold\"><a href=\"/clients/demo/communitymap/view/Agrarian\">Agrarian</a></h4><div><a href=\"http://www.agrarianindy.com\" target=\"_blank\">www.agrarianindy.com</a></div><div>661 East 49th Street Map, 46205 <br>Indianapolis, IN 46205</div><div>(317) 493-1166</div></div>"
+                a[1] = t;
+
+                var t = new Object();
+                t.name = "Bjava Coffee & Tea"
+                t.lat = 39.8516197
+                t.lng = -86.2631756
+                t.desc = "<div style=\"width:100%; height:100%;\";><h4 style=\"font-weight:bold\"><a href=\"/clients/demo/communitymap/view/Bjava+Coffee+&+Tea\">Bjava Coffee & Tea</a></h4><div><a href=\"http://beejava.blogspot.com\" target=\"_blank\">beejava.blogspot.com</a></div><div>5510 Lafayette Rd #140<br>Indianapolis, IN 46254</div></div>"
+                a[2] = t;
+
+
+                for (var i = 0; i < a.length; i++) {
+                    var latlng = new google.maps.LatLng(a[i].lat, a[i].lng);
+                    map.addMarker(createMarker(a[i].name, latlng, a[i].desc));
+                }
+                console.log(map.getMarkers());
+
+                console.log(map.getMarkers());
+
+                function createMarker(name, latlng, desc) {
+                    var marker = new google.maps.Marker({position: latlng, map: map, animation: google.maps.Animation.DROP,
+                        title: name, icon: ''});
+                    google.maps.event.addListener(marker, "click", function () {
+                        if (infowindow) infowindow.close();
+                        infowindow = new google.maps.InfoWindow({content: desc});
+                        infowindow.open(map, marker);
+                    });
+                    return marker;
+                }
+
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+        <div id="map-canvas"></div>
+    </div>
+    <!--map end-->
+    <!--content area begin-->
+    <div class="container orgdetail">
+        <div class="row">
+            <div class="col-xs-11 col-xs-offset-1 col-sm-5 col-sm-offset-1">
+                <div class="iconcontainer">
+                    <div class="icon"><img src="images/pin.png" class="img-responsive wow hatch" data-animation="hatch"/></div>
+                    <div class="content">
+                        <h2><a href="http://glasswebprojects.info/clients/demo/communitymap/view/City+Market">City
+                            Market</a></h2>
+                    </div>
+                </div>
+                <div class="leftpadding">
+                    <a href="http://www.indycm.com" target="_blank">www.indycm.com</a><br>
+
+                    <p>222 E Market St.<br>
+                        Indianapolis, IN 46204</p>
+                </div>
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-sm-5">
+                <div class="iconcontainer">
+                    <div class="icon"><img src="images/pin.png" class="img-responsive wow hatch"/></div>
+                    <div class="content">
+                        <h2><a href="http://glasswebprojects.info/clients/demo/communitymap/view/City+Market">City
+                            Market</a></h2>
+                    </div>
+                </div>
+                <div class="leftpadding">
+                    <a href="http://www.indycm.com" target="_blank">www.indycm.com</a><br>
+
+                    <p>222 E Market St.<br>
+                        Indianapolis, IN 46204</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--content area end-->
 </div>
+
+<script src="script/jquery.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,49 @@
+/* Custom container */
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.iconcontainer .icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+.iconcontainer .icon img{
+	padding-top:15px;
+}
+.iconcontainer .content {
+    display: inline-block;
+    vertical-align: middle;
+}
+.maphead
+{
+	position:relative;
+	z-index:100;
+}
+.jumbotron{
+	margin-bottom:3px!important;
+}
+.bottomshadow{
+	-webkit-box-shadow: 0px 3px 9px 0px rgba(38,38,38,1);
+	-moz-box-shadow: 0px 3px 9px 0px rgba(38,38,38,1);
+	box-shadow: 0px 3px 9px 0px rgba(38,38,38,1);
+}
+.orgdetail{
+	padding-bottom:40px;
+	padding-top:40px;
+}
+.orgdetail h2{
+	font-size:35px;
+}
+.orgdetail h2 a{
+	color:#333;
+}
+.orgdetail a{
+	color:#55A435;
+}
+.leftpadding{
+	padding-left:40px;
+}
+.lightblue{
+	background-color:#B0DDD6;
+}

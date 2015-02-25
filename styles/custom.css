@@ -16,6 +16,20 @@
     display: inline-block;
     vertical-align: middle;
 }
+.headingcontainer .headingitem{
+    display: inline-block;
+    vertical-align: middle;
+}
+.headingcontainer .stars{
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 10%;
+}
+.headingcontainer .stars img{
+    display: inline-block;
+    vertical-align: middle;
+    max-height: 40px;
+}
 .maphead
 {
 	position:relative;
@@ -48,5 +62,3 @@
 .lightblue{
 	background-color:#B0DDD6;
 }
-
-.revealOnScroll { opacity: 0; }

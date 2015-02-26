@@ -57,9 +57,9 @@
 .orgdetail h2 a{
 	color:#333;
 }
-.orgdetail a{
-	color:#55A435;
-}
+/*.orgdetail a{*/
+	/*color:#55A435;*/
+/*}*/
 .orgdetail h1{
     position:relative;
     /*padding-left:45px;*/
@@ -104,3 +104,7 @@
     /*display:block;*/
     /*max-width: 200px;*/
 /*}*/
+
+.headingcontainer .readmore a{
+    color:#eeeeee;
+}

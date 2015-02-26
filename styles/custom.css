@@ -91,3 +91,16 @@
     color:#333;
     font-size:40px;
 }
+.reviews{
+    /*background-color: #EEEEEE;*/
+    /*padding: 10px;*/
+}
+.rating .star{
+    display: inline-block;
+    width:30px; height:28px;
+    background:url(../images/star.png) 0 0 no-repeat;
+}
+/*.bio .image{*/
+    /*display:block;*/
+    /*max-width: 200px;*/
+/*}*/

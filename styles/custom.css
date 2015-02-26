@@ -60,6 +60,24 @@
 .orgdetail a{
 	color:#55A435;
 }
+.orgdetail h1{
+    position:relative;
+    /*padding-left:45px;*/
+    overflow: hidden;
+}
+
+.orgdetail h1 .pin{
+    display:block;
+    width:35px; height:65px;
+    background:url(../images/pin.png) 0 0 no-repeat;
+    float:left;
+}
+.orgdetail h2 .pin{
+    display:block;
+    width:35px; height:65px;
+    background:url(../images/pin.png) 0 0 no-repeat;
+    float:left;
+}
 .leftpadding{
 	padding-left:40px;
 }
@@ -67,5 +85,9 @@
 	background-color:#B0DDD6;
 }
 .featured{
-
+    font-size:1.2em;
+}
+.featured h1 a{
+    color:#333;
+    font-size:40px;
 }

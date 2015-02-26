@@ -108,3 +108,10 @@
 .headingcontainer .readmore a{
     color:#eeeeee;
 }
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+    #map-canvas {
+        width: 100%;
+        height: 200px;
+
+    }

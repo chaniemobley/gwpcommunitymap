@@ -4,7 +4,9 @@
   margin: 0 auto;
   width: 100%;
 }
-
+.maphead .breadcrumb{
+    background-color: #eeeeee!important;
+}
 .iconcontainer .icon {
     display: inline-block;
     vertical-align: middle;
@@ -53,6 +55,7 @@
 }
 .orgdetail h2{
 	font-size:35px;
+    line-height: 65px!important;
 }
 .orgdetail h2 a{
 	color:#333;
@@ -108,10 +111,35 @@
 .headingcontainer .readmore a{
     color:#eeeeee;
 }
-/* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) {
+.social .socfacebook{
+    display: inline-block;
+    width:50px; height:50px;
+    background:url(../images/fbicon.png) 0 0 no-repeat;
+}
+.social .soctwitter{
+    display: inline-block;
+    width:50px; height:50px;
+    background:url(../images/twittericon.png) 0 0 no-repeat;
+}
+.social .socig{
+    display: inline-block;
+    width:50px; height:50px;
+    background:url(../images/igicon.png) 0 0 no-repeat;
+}
+.social .socplus{
+    display: inline-block;
+    width:50px; height:50px;
+    background:url(../images/plusicon.png) 0 0 no-repeat;
+}
+#add-review-form .form-control{
+    width:75%;
+}
+
+
+@media only screen and (min-device-width: 480px){
     #map-canvas {
         width: 100%;
         height: 200px;
 
     }
+}

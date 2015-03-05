@@ -146,4 +146,12 @@
 }
 
 
-@media screen and (max-width: 767px){ #map-canvas{ height:340px!important; } }
+@media screen and (max-width: 767px){
+    #map-canvas{
+        height:340px!important;
+    }
+    .orglogo img{
+        max-width: 200px;
+        margin: auto;
+    }
+}

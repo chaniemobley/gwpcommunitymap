@@ -132,6 +132,16 @@
     width:50px; height:50px;
     background:url(../images/plusicon.png) 0 0 no-repeat;
 }
+.social .soclinked{
+    display: inline-block;
+    width:50px; height:50px;
+    background:url(../images/linkedinicon.png) 0 0 no-repeat;
+}
+.social .socyoutube{
+    display: inline-block;
+    width:50px; height:50px;
+    background:url(../images/youtubeicon.png) 0 0 no-repeat;
+}
 .orgdetail .reviewicon{
     display: inline-block;
     width:35px; height:35px;
